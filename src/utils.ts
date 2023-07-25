@@ -27,7 +27,7 @@ export async function getExtensionsJson(verbose = false): Promise<Configs> {
     }
 
     if (files.length === 0) {
-        verbose && vscode.window.showWarningMessage('No defined extensions found, please define "unwantedRecommendations" within the ".vscode/extensions.json" file. See [documentation](https://github.com/garaio/vscode-unwanted-recommendations) for more details.');
+        verbose && vscode.window.showWarningMessage('No defined extensions found, please define "unwantedRecommendations" within the ".vscode/extensions.json" file. See [documentation](https://github.com/cyclodex/vscode-unwanted-recommendations) for more details.');
 
         throw new Error('No ".vscode/extensions.json" file found and no workspace is open');
     } else {

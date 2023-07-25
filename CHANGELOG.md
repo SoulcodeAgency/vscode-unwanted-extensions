@@ -28,3 +28,8 @@
 
 - Added: Supporting workspace settings (multi-root): define extensions in `***.code-workspace` file
 - Improved: Lowering verbosity of some output
+
+## [0.5.0] - 2023-07-26
+
+- Added: Supporting semver versions for unwantedRecommendations in the new `extensionsVersionCheck.json` file.
+- Added: New warnings if the semver versions do match the installed version
