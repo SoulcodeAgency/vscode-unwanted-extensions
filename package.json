@@ -41,7 +41,7 @@
   "contributes": {
     "commands": [
       {
-        "command": "extensions-unwanted-recommendations.checkPackages",
+        "command": "vscode-unwanted-recommendations.checkPackages",
         "title": "Check for unwanted recommendations (extensions)"
       }
     ]
