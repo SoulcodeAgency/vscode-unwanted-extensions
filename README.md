@@ -1,4 +1,4 @@
-# Unwanted recommendations (extensions)
+# Unwanted extensions
 
 This extensions, tries to help out with extensions which are not recommended for specific workspaces.
 
@@ -69,7 +69,7 @@ After the user disabled manually all unwanted extensions, the workspace should w
 
 ----
 
-### No unwanted recommendations defined
+### No unwanted extensions defined
 
 Further when there is no extension defined as `unwantedRecommendations`, this extension will show the following information:
 
@@ -83,7 +83,7 @@ Further when there is no extension defined as `unwantedRecommendations`, this ex
 
 You can also execute the check manually, using the vscode **command**
 
-* `Check for unwanted recommendations (extensions)`
+* `Check for unwanted extensions`
 
 ## Requirements
 

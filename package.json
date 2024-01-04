@@ -1,11 +1,11 @@
 {
-  "name": "vscode-unwanted-recommendations",
-  "displayName": "Unwanted Recommendations",
-  "description": "Check and warn for extensions which are marked as 'unwanted recommendations'.",
+  "name": "vscode-unwanted-extensions",
+  "displayName": "Unwanted Extensions",
+  "description": "Check and warn for extensions which are marked as 'unwanted'.",
   "icon": "icon.png",
   "version": "1.0.0",
   "repository": {
-    "url": "https://github.com/SoulcodeAgency/vscode-unwanted-recommendations"
+    "url": "https://github.com/SoulcodeAgency/vscode-unwanted-extensions"
   },
   "publisher": "Soulcode",
   "author": {
@@ -40,8 +40,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "vscode-unwanted-recommendations.checkPackages",
-        "title": "Check for unwanted recommendations (extensions)"
+        "command": "vscode-unwanted-extensions.checkPackages",
+        "title": "Check for unwanted extensions"
       }
     ]
   },

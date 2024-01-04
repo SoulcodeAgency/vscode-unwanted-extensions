@@ -8,13 +8,13 @@ import { getExtensionsJson, isConfirm, showExtensionsInMarketplaceSearch } from 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	console.log('Extension "vscode-unwanted-recommendations" is now active!');
+	console.log('Extension "vscode-unwanted-extensions" is now active!');
 
 	// Check for extensions
 	checkingExtensions(context);
 
 	// The command has been defined in the package.json file
-	let disposable = vscode.commands.registerCommand('vscode-unwanted-recommendations.checkPackages', () => {
+	let disposable = vscode.commands.registerCommand('vscode-unwanted-extensions.checkPackages', () => {
 		checkingExtensions(context, true);
 	});
 
@@ -28,14 +28,14 @@ async function checkingExtensions(context: ExtensionContext, verbose = false) {
 	// Make sure, that the unwantedRecommendations is defined, otherwise we have nothing to do
 	let amountOfUnwantedRecommendations = configs.unwantedRecommendations?.length ?? 0;
 	if (amountOfUnwantedRecommendations === 0) {
-		console.log("No unwanted recommendations found.");
-		verbose && vscode.window.showWarningMessage("No unwanted recommendations found.");
+		console.log("No extension defined as unwanted.");
+		verbose && vscode.window.showWarningMessage("No extension defined as unwanted.");
 		return;
 	}
 
 	vscode.window.withProgress({
 		location: vscode.ProgressLocation.Notification,
-		title: "Unwanted recommendations",
+		title: "Unwanted extensions",
 		cancellable: false
 	}, async (progress, token) => {
 		// In case "cancellable" is set to true and the user canceled the operation
@@ -47,13 +47,13 @@ async function checkingExtensions(context: ExtensionContext, verbose = false) {
 			// Start checking for extensions
 			progress.report({ increment: 25, message: "checking... 🕵️" });
 
-			// Collect all unwanted recommendations which are still enabled
+			// Collect all unwanted extensions which are still enabled
 			let enabledUnwantedRecommendations: string[] = [];
 			const installedExtensions = vscode.extensions.all;
 			// Progress is already on 25, define the rest for every extension
 			let progressStep = 75 / amountOfUnwantedRecommendations;
 
-			// Iterate over the unwanted recommendations
+			// Iterate over the unwanted extensions
 			configs.unwantedRecommendations.map(async unwantedExtensionId => {
 				progress.report({ increment: progressStep, message: unwantedExtensionId + "..." });
 
@@ -75,9 +75,9 @@ async function checkingExtensions(context: ExtensionContext, verbose = false) {
 			});
 
 			if (enabledUnwantedRecommendations.length > 0) {
-				// Show a summary for the user about enabled unwanted recommendations
+				// Show a summary for the user about enabled unwanted extensions
 				progress.report({ increment: 100, message: `Found ${enabledUnwantedRecommendations.length} enabled unwanted extensions!` });
-				const result = await isConfirm("Display unwanted recommendations (extensions)?", "Do you want to display the unwanted recommendations (extensions)?\nIt's recommended to disable them for this workspace.\nYou need to do this manually.");
+				const result = await isConfirm("Display unwanted extensions?", "Do you want to display the unwanted extensions?\nIt's recommended to disable them for this workspace.\nYou need to do this manually.");
 				if (result) {
 					showExtensionsInMarketplaceSearch(enabledUnwantedRecommendations);
 				}
