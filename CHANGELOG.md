@@ -28,3 +28,7 @@
 
 - Added: Supporting workspace settings (multi-root): define extensions in `***.code-workspace` file
 - Improved: Lowering verbosity of some output
+
+## [1.0.0] - 2024-01-04
+
+- Extension migration to new publisher **Soulcode**

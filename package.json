@@ -3,7 +3,7 @@
   "displayName": "Unwanted Recommendations",
   "description": "Check and warn for extensions which are marked as 'unwanted recommendations'.",
   "icon": "icon.png",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "repository": {
     "url": "https://github.com/SoulcodeAgency/vscode-unwanted-recommendations"
   },
@@ -59,7 +59,7 @@
     "@types/glob": "^8.0.0",
     "@types/hjson": "^2.4.3",
     "@types/mocha": "^10.0.1",
-    "@types/node": "16.x",
+    "@types/node": "^16.0.0",
     "@types/vscode": "^1.74.0",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
