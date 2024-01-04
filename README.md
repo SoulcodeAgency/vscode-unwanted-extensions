@@ -112,4 +112,6 @@ No settings yet.
 
 ## 🎉 Sponsored by GARAIO AG 🎉
 
-The extension was developed by [Fabian Gander aka Cyclodex](https://github.com/Cyclodex), sponsored by [GARAIO AG](https://www.garaio.com). Thanks!
+The extension was developed by [Fabian Gander aka Cyclodex](https://github.com/Cyclodex).
+
+The initial version was sponsored by [GARAIO AG](https://www.garaio.com). Thanks!

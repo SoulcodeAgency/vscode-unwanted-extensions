@@ -1,15 +1,15 @@
 {
-  "name": "garaio-vscode-unwanted-recommendations",
+  "name": "vscode-unwanted-recommendations",
   "displayName": "Unwanted Recommendations",
   "description": "Check and warn for extensions which are marked as 'unwanted recommendations'.",
   "icon": "icon.png",
   "version": "0.4.0",
   "repository": {
-    "url": "https://github.com/garaio/vscode-unwanted-recommendations"
+    "url": "https://github.com/SoulcodeAgency/vscode-unwanted-recommendations"
   },
-  "publisher": "GARAIOAG",
+  "publisher": "Soulcode",
   "author": {
-    "email": "fabian.gander@garaio.com",
+    "email": "fabian.gander@soulcode.ch",
     "name": "Fabian Gander"
   },
   "engines": {
@@ -26,7 +26,11 @@
     "disable",
     "disable extension",
     "unwantedRecommendations",
-    "exensions.json"
+    "extensions.json",
+    "version",
+    "check",
+    "deprecated",
+    "deprecate"
   ],
   "activationEvents": [
     "workspaceContains:.vscode/extensions.json",
@@ -36,7 +40,7 @@
   "contributes": {
     "commands": [
       {
-        "command": "extensions-unwanted-recommendations.checkPackages",
+        "command": "vscode-unwanted-recommendations.checkPackages",
         "title": "Check for unwanted recommendations (extensions)"
       }
     ]

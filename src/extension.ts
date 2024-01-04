@@ -8,13 +8,13 @@ import { getExtensionsJson, isConfirm, showExtensionsInMarketplaceSearch } from 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	console.log('Extension "extensions-unwanted-recommendations" is now active!');
+	console.log('Extension "vscode-unwanted-recommendations" is now active!');
 
 	// Check for extensions
 	checkingExtensions(context);
 
 	// The command has been defined in the package.json file
-	let disposable = vscode.commands.registerCommand('extensions-unwanted-recommendations.checkPackages', () => {
+	let disposable = vscode.commands.registerCommand('vscode-unwanted-recommendations.checkPackages', () => {
 		checkingExtensions(context, true);
 	});
 
