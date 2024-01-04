@@ -15,7 +15,7 @@ Until then, its not easy to handle it. This extension tries to improve the exper
 
 ## Features
 
-### Note down unwanted extensions
+### Unwanted extensions
 
 This extension allows you to put unwanted extensions, into the already existing `.vscode/extensions.json` file, which already seems to kind of support the property `unwantedRecommendations`. Simply put your vscode extension id's in this array.
 
@@ -36,7 +36,7 @@ Following is a possible example for using **`Volar`**, and check for disabled `V
 
 > Note: This extension is only handling the `unwantedRecommendations`, as the `recommendations` are already handled by **VSCode**.
 
-### What does this extension do
+## What does this extension do
 
 * This extension will *automatically* run if the `.vscode/extensions.json` file exists. (When opening the folder/workspace).
 * If there are `unwantedRecommendations`, it will go through them and check if the `extension` is enabled.
@@ -51,9 +51,9 @@ After the user disabled manually all unwanted extensions, the workspace should w
 
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow. -->
 
-### Screenshots
+## Screenshots
 
-#### If `unwantedRecommendations` are defined
+### If `unwantedRecommendations` are defined
 
 1. When opening a project, this extension checks all configured `unwantedRecommendations` and reports the still enabled extensions:
 ![image](https://user-images.githubusercontent.com/840929/211357086-5c4428ac-d849-4fd4-b178-68e84a513e0b.png)
@@ -69,7 +69,7 @@ After the user disabled manually all unwanted extensions, the workspace should w
 
 ----
 
-#### No unwanted recommendations defined
+### No unwanted recommendations defined
 
 Further when there is no extension defined as `unwantedRecommendations`, this extension will show the following information:
 
@@ -79,7 +79,7 @@ Further when there is no extension defined as `unwantedRecommendations`, this ex
 1. No `unwantedRecommendations` configured within `extension.json`
 ![image](https://user-images.githubusercontent.com/840929/211356601-e160749a-4da4-4fe9-8ec1-c6f35639f93e.png)
 
-### Execute the check manually
+## Run the check manually
 
 You can also execute the check manually, using the vscode **command**
 
@@ -89,7 +89,7 @@ You can also execute the check manually, using the vscode **command**
 
 `.vscode/extensions.json` should contain the list of unwanted extensions within the `unwantedRecommendations` property. See above for details.
 
-**Workspaces / Multi-root workspaces**
+### Workspaces / Multi-root workspaces
 
 You can use the above approach if you are running a workspace.
 Just place the `.vscode/extensions.json` file into your workspace root directory.
@@ -106,11 +106,7 @@ Alternatively you can also put the unwanted extensions within your `***.code-wor
 }
 ```
 
-## Extension Settings
-
-No settings yet.
-
-## 🎉 Sponsored by GARAIO AG 🎉
+## Sponsors 🎉
 
 The extension was developed by [Fabian Gander aka Cyclodex](https://github.com/Cyclodex).
 
