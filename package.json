@@ -3,7 +3,7 @@
   "displayName": "Unwanted Extensions",
   "description": "Check and warn for extensions which are marked as 'unwanted'.",
   "icon": "icon.png",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "url": "https://github.com/SoulcodeAgency/vscode-unwanted-extensions"
   },
