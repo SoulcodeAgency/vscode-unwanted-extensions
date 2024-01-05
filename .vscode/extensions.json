@@ -3,5 +3,10 @@
 	// for the documentation about the extensions.json format
 	"recommendations": [
 		"dbaeumer.vscode-eslint"
+	],
+	"unwantedRecommendations": [
+		"vscode.typescript-language-features",
+		"octref.vetur",
+		"vue.vscode-typescript-vue-plugin"
 	]
 }

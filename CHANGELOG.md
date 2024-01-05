@@ -32,3 +32,11 @@
 ## [1.0.0] - 2024-01-04
 
 - Extension migration to new publisher **Soulcode**
+
+## [1.0.1] - 2024-01-04
+
+- Fixed: `hjson` package should be a dependency, not devDependency
+
+## [1.0.2] - 2024-01-05
+
+- README updated
