@@ -34,6 +34,8 @@
   ],
   "activationEvents": [
     "workspaceContains:.vscode/extensions.json",
+    "workspaceContains:.vscode/extensionsVersionCheck.json",
+    "workspaceContains:.vscode/extensionsVersionCheck.jsonc",
     "workspaceContains:*.code-workspace"
   ],
   "main": "./out/extension.js",
