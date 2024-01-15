@@ -46,14 +46,57 @@ Following is a possible example for using **`Volar`**, and check for disabled `V
 
 > Note: This extension is only handling the `unwantedRecommendations`, as the `recommendations` are already handled by **VSCode**.
 
+### 🆕Define extensions version numbers to exclude from this workspace
+
+If you want to mark a specific version or range of versions as deprecated for your workspace, you can now add the unwanted extensions to the following file, including the semver version range:
+
+Create a file like `.vscode/extensionsVersionCheck.json`, or if you need comments in there, use `.jsonc`.
+The name can be anything but it needs to start with `extensions` and end with `.json` or `.jsonc`.
+
+`.vscode/extensionsVersionCheck.jsonc`
+```jsonc
+{
+    "recommendations": [],
+    "unwantedRecommendations": [
+        // Mention the extension id and the version you want to use, its enough to have 1 single definition.
+        // However you can also mention the same extension id multiple times with different versions if you preffer.
+        // We will report only the last matching rule which matches with the installed extension's version.
+        // 
+        // Exact version: You can specify an exact version like 1.0.0.
+        "formulahendry.auto-complete-tag@0.1.0",
+        // Greater than or equal to: You can specify a version greater than or equal to a certain version using >=, like >=1.0.0.
+        "formulahendry.auto-complete-tag@>=0.1.1",
+        // Less than: You can specify a version less than a certain version using <, like <2.0.0.
+        "formulahendry.auto-complete-tag@<0.2.0",
+        // Hyphen Ranges: You can specify a range of versions using -, like 1.0.0 - 2.0.0. This would include versions greater than or equal to 1.0.0 and less than or equal to 2.0.0.
+        "formulahendry.auto-complete-tag@0.1 - 0.9",
+        // Wildcard Ranges: You can specify a range of versions using *, like 1.0.* or 1.*. This would include all versions that start with 1.0. or 1. respectively.
+        "formulahendry.auto-complete-tag@0.*",
+        // Tilde Ranges: You can specify a range of versions using ~, like ~1.0.0. This would include all versions >=1.0.0 and <1.1.0.
+        "formulahendry.auto-complete-tag@~0.1.0",
+        // Caret Ranges: You can specify a range of versions using ^, like ^1.0.0. This would include versions >=1.0.0 and <2.0.0.
+        "formulahendry.auto-complete-tag@^0.1.0"
+    ]
+}
+```
+
+> Of course the above are all just examples, you should only need to define 1 rule.  
+> However you can feel free to add multiple rules per extension if you need to.  
+> If you save it as `.json`, make sure to remove all the comments.
+
+### 🆕 Logs
+
+You can check the logs if you need more details, what is happening during the checks: `VSCode->OUTPUT->Unwanted extensions`
+
 ## 🗒️ What does this extension do
 
-* This extension will *automatically* run if the `.vscode/extensions.json` file exists. (When opening the folder/workspace).
+* This extension will *automatically* run if the `.vscode/extensions.json` file exists. (When opening the folder/workspace). (TODO: check `.vscode/extensionsVersionCheck.json`)
 * If there are `unwantedRecommendations`, it will go through them and check if the `extension` is enabled.
-* If it is **enabled**, it will show a warning message including an info to disabled the extension manually.
+* It will consider the defined version number as SEMVER, if no version number is defined, it will just look for the extension
+* If the extension is **enabled**, (and the version number matches) it will show a warning message including an info to disabled the extension manually.
 * After all extensions are checked, a popup will ask to show all extensions in the extension-gallery.
 
-After the user disabled manually all unwanted extensions, the workspace should work fine, even after restarts/reboots.
+After the user disabled manually all unwanted extensions, the workspace should be configured as wanted, even after restarts/reboots the apps will not start anymore.
 
 <!-- For example if there is an image subfolder under your extension project workspace:
 

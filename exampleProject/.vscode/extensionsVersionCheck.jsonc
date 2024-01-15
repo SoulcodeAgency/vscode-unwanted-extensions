@@ -2,7 +2,6 @@
 // Name the file however you want, but it needs to start with "extensions" and end with ".jsonc" or ".json"
 {
     "recommendations": [],
-    // List of some funny things
     "unwantedRecommendations": [
         // Mention the extension id and the version you want to use, its enough to have 1 single definition.
         // However you can also mention the same extension id multiple times with different versions if you preffer.
