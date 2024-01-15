@@ -5,6 +5,8 @@
 	"recommendations": [],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
 	"unwantedRecommendations": [
-		"vscode.npm"
+		"vscode.typescript-language-features",
+		"octref.vetur",
+		"vue.vscode-typescript-vue-plugin"
 	]
 }

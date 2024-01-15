@@ -9,9 +9,7 @@
 	],
 	"settings": {},
 	"extensions": {
-		"recommendations": [
-			"dsznajder.es7-react-js-snippets"
-		],
+		"recommendations": [],
 		"unwantedRecommendations": [
 			"ms-vscode.vscode-typescript-tslint-plugin"
 		]
