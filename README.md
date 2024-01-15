@@ -50,10 +50,8 @@ Following is a possible example for using **`Volar`**, and check for disabled `V
 
 If you want to mark a specific version or range of versions as deprecated for your workspace, you can now add the unwanted extensions to the following file, including the semver version range:
 
-Create a file like `.vscode/extensionsVersionCheck.json`, or if you need comments in there, use `.jsonc`.
-The name can be anything but it needs to start with `extensions` and end with `.json` or `.jsonc`.
+Create a file `.vscode/extensionsVersionCheck.json`, or if you need comments in there, use `.jsonc`.
 
-`.vscode/extensionsVersionCheck.jsonc`
 ```jsonc
 {
     "recommendations": [],
@@ -80,8 +78,9 @@ The name can be anything but it needs to start with `extensions` and end with `.
 }
 ```
 
-> Of course the above are all just examples, you should only need to define 1 rule.  
+> The above are all just examples, you should only need to define 1 rule.  
 > However you can feel free to add multiple rules per extension if you need to.  
+> There will be maximum 1 notification per extension.  
 > If you save it as `.json`, make sure to remove all the comments.
 
 ### 🆕 Logs
@@ -90,13 +89,13 @@ You can check the logs if you need more details, what is happening during the ch
 
 ## 🗒️ What does this extension do
 
-* This extension will *automatically* run if the `.vscode/extensions.json` file exists. (When opening the folder/workspace). (TODO: check `.vscode/extensionsVersionCheck.json`)
-* If there are `unwantedRecommendations`, it will go through them and check if the `extension` is enabled.
+* When opening the folder/workspace, this extension will *automatically* run if the `.vscode/extensions.json` (or `.vscode/extensionsVersionCheck.json`) file exists.
+* If there are any `unwantedRecommendations`, it will go through them and check if the `extension` is enabled.
 * It will consider the defined version number as SEMVER, if no version number is defined, it will just look for the extension
 * If the extension is **enabled**, (and the version number matches) it will show a warning message including an info to disabled the extension manually.
 * After all extensions are checked, a popup will ask to show all extensions in the extension-gallery.
 
-After the user disabled manually all unwanted extensions, the workspace should be configured as wanted, even after restarts/reboots the apps will not start anymore.
+After the user disabled manually all unwanted extensions, the workspace should be configured as wanted, even after restarts/reboots the extensions will not get enabled automatically. (until you manually enable them again)
 
 <!-- For example if there is an image subfolder under your extension project workspace:
 
@@ -142,6 +141,10 @@ You can also execute the check manually, using the vscode **command**
 ## ❗ Requirements
 
 `.vscode/extensions.json` should contain the list of unwanted extensions within the `unwantedRecommendations` property. See above for details.
+
+### Version numbers
+
+Version numbers are only supported within the `.vscode/extensionsVersionCheck.json` file.
 
 ### Workspaces / Multi-root workspaces
 
