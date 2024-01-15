@@ -1,0 +1,26 @@
+// Needs to be within ".vscode" folder
+// Name the file however you want, but it needs to start with "extensions" and end with ".jsonc" or ".json"
+{
+    "recommendations": [],
+    // List of some funny things
+    "unwantedRecommendations": [
+        // Mention the extension id and the version you want to use, its enough to have 1 single definition.
+        // However you can also mention the same extension id multiple times with different versions if you preffer.
+        // We will report only the last matching rule which matches with the installed extension's version.
+        // 
+        // Exact version: You can specify an exact version like 1.0.0.
+        "formulahendry.auto-complete-tag@0.1.0",
+        // Greater than or equal to: You can specify a version greater than or equal to a certain version using >=, like >=1.0.0.
+        "formulahendry.auto-complete-tag@>=0.1.1",
+        // Less than: You can specify a version less than a certain version using <, like <2.0.0.
+        "formulahendry.auto-complete-tag@<0.2.0",
+        // Hyphen Ranges: You can specify a range of versions using -, like 1.0.0 - 2.0.0. This would include versions greater than or equal to 1.0.0 and less than or equal to 2.0.0.
+        "formulahendry.auto-complete-tag@0.1 - 0.9",
+        // Wildcard Ranges: You can specify a range of versions using *, like 1.0.* or 1.*. This would include all versions that start with 1.0. or 1. respectively.
+        "formulahendry.auto-complete-tag@0.*",
+        // Tilde Ranges: You can specify a range of versions using ~, like ~1.0.0. This would include all versions >=1.0.0 and <1.1.0.
+        "formulahendry.auto-complete-tag@~0.1.0",
+        // Caret Ranges: You can specify a range of versions using ^, like ^1.0.0. This would include versions >=1.0.0 and <2.0.0.
+        "formulahendry.auto-complete-tag@^0.1.0"
+    ]
+}

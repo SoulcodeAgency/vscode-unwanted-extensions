@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "something"
+		}
+	],
+	"settings": {},
+	"extensions": {
+		"recommendations": [
+			"dsznajder.es7-react-js-snippets"
+		],
+		"unwantedRecommendations": [
+			"ms-vscode.vscode-typescript-tslint-plugin"
+		]
+	}
+}
