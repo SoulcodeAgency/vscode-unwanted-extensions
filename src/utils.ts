@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import { Configs } from './types';
 import * as Hjson from 'hjson';
+import { logger } from './extension';
 
 export async function getJsonConfig(uri: vscode.Uri): Promise<Configs> {
     const buffer = await vscode.workspace.fs.readFile(uri);
@@ -15,9 +16,8 @@ export async function getJsonConfig(uri: vscode.Uri): Promise<Configs> {
 }
 
 export async function getExtensionsJson(verbose = false): Promise<Configs> {
-    // Check for default extensions.json file
-    // Note: We could open it further for all subdirectories if wanted (**/)
-    const fileGlob = '.vscode/extensions*.json';
+    // Check for default extensions.json file as well as extended ones with version numbers
+    const fileGlob = '.vscode/extensions*.{json,jsonc}';
     const files = await vscode.workspace.findFiles(fileGlob, '**​/node_modules/**');
 
     // Add Workspace file if one exists
@@ -38,6 +38,7 @@ export async function getExtensionsJson(verbose = false): Promise<Configs> {
 
         await Promise.all(files.map(async file => {
             const config = await getJsonConfig(file);
+            logger.appendLine(`Found extension configuration in ${file.fsPath}`);
             // Merge the configs
             if (config.recommendations) {
                 configs.recommendations = [...configs.recommendations, ...config.recommendations];
