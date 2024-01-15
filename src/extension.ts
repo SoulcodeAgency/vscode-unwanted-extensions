@@ -5,6 +5,7 @@ import { ExtensionContext } from 'vscode';
 import { Configs } from './types';
 import { getExtensionsJson, isConfirm, showExtensionsInMarketplaceSearch } from './utils';
 import semver = require('semver');
+import { checkUpdateNotification } from './update';
 
 export const logger = vscode.window.createOutputChannel("Unwanted extensions");
 logger.show();
@@ -13,6 +14,9 @@ logger.show();
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 	logger.appendLine('Extension "vscode-unwanted-extensions" is now active!');
+
+	// Check for updates
+	checkUpdateNotification(context);
 
 	// Check for extensions
 	checkingExtensions(context);
