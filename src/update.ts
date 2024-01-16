@@ -3,9 +3,8 @@ import { ExtensionContext, window, extensions } from 'vscode';
 
 // Define update messages
 const updateMessages: { [version: string]: string } = {
-  // Add more versions and messages as needed
-  '1.2.0': 'This release allows to define semver versions per extension. See extension description for more details.',
-  '1.1.2': 'This release allows to define semver versions per extension. See extension description for more details.',
+  '1.2.0': '🚀New feature: Define versions per unwanted extension. See extension description for more details.',
+  '1.1.2': '🚀New feature: Define versions per unwanted extension. See extension description for more details.',
 };
 
 export function checkUpdateNotification(context: ExtensionContext) {

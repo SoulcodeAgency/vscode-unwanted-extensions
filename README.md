@@ -1,11 +1,12 @@
 # Unwanted extensions
 
-This extensions, tries to help out with extensions which are not recommended for specific workspaces.
+This extensions, tries to help out with extensions which are not recommended for specific workspaces.  
+🆕 It now also supports version ranges!
 
 ## ↗️Successor
 
 This is the continuation of the previous extension [Unwanted Recommendations](https://marketplace.visualstudio.com/items?itemName=GARAIOAG.garaio-vscode-unwanted-recommendations) which is not maintained anymore.  
-The extension therefore had to be migrated to a new publisher.
+The extension therefore had to be migrated to a new publisher. The developer is the same.
 
 ## 📖 Blog post
 
@@ -50,7 +51,12 @@ Following is a possible example for using **`Volar`**, and check for disabled `V
 
 If you want to mark a specific version or range of versions as deprecated for your workspace, you can now add the unwanted extensions to the following file, including the semver version range:
 
+> ⚠️ The original `.vscode/extensions.json` does not support version numbers!  
+> Therefor you might want to migrate (copy/paste) your `"unwantedRecommendations"` to the new file
+
 Create a file `.vscode/extensionsVersionCheck.json`, or if you need comments in there, use `.jsonc`.
+
+#### Example: `.vscode/extensionsVersionCheck.jsonc`
 
 ```jsonc
 {
@@ -78,14 +84,15 @@ Create a file `.vscode/extensionsVersionCheck.json`, or if you need comments in 
 }
 ```
 
-> The above are all just examples, you should only need to define 1 rule.  
-> However you can feel free to add multiple rules per extension if you need to.  
-> There will be maximum 1 notification per extension.  
-> If you save it as `.json`, make sure to remove all the comments.
+* It supports SemVer ranges
+* The above are all just examples, you should only need to define 1 rule
+* However you can feel free to add multiple rules per extension if you need to
+* There will be a maximum of 1 notification per extension
+* If you save it as `.json`, make sure to remove all the comments
 
 ### 🆕 Logs
 
-You can check the logs if you need more details, what is happening during the checks: `VSCode->OUTPUT->Unwanted extensions`
+You can check the logs if you need more details, what is happening during the checks: `VSCode -> OUTPUT -> Unwanted extensions`
 
 ## 🗒️ What does this extension do
 
@@ -96,12 +103,6 @@ You can check the logs if you need more details, what is happening during the ch
 * After all extensions are checked, a popup will ask to show all extensions in the extension-gallery.
 
 After the user disabled manually all unwanted extensions, the workspace should be configured as wanted, even after restarts/reboots the extensions will not get enabled automatically. (until you manually enable them again)
-
-<!-- For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow. -->
 
 ## 🖼️ Screenshots
 
@@ -133,18 +134,19 @@ Further when there is no extension defined as `unwantedRecommendations`, this ex
 
 ## ▶️ Run the check manually
 
-This extensions runs automatically when you open your project including the `.vscode/extensions.json`
+This extensions runs automatically when you open your project including the one of the configuration files.  
 You can also execute the check manually, using the vscode **command**
 
 * `Check for unwanted extensions`
 
 ## ❗ Requirements
 
-`.vscode/extensions.json` should contain the list of unwanted extensions within the `unwantedRecommendations` property. See above for details.
+`.vscode/extensions.json` should contain the list of unwanted extensions within the `unwantedRecommendations` property.  
+This file does not support version numbers. See above for details.
 
 ### Version numbers
 
-Version numbers are only supported within the `.vscode/extensionsVersionCheck.json` file.
+Version numbers are only supported within the `.vscode/extensionsVersionCheck.json` (or `.jsonc`) file.
 
 ### Workspaces / Multi-root workspaces
 
@@ -165,6 +167,11 @@ Alternatively you can also put the unwanted extensions within your `***.code-wor
 
 ## 🎉 Sponsors
 
-The extension was developed by [Fabian Gander aka Cyclodex](https://github.com/Cyclodex).
+Current maintenance and improvements are sponsored by [Soulcode](https://soulcode.agency).  
 
-The initial version was sponsored by [GARAIO AG](https://www.garaio.com). Thanks!
+[<img src="https://raw.githubusercontent.com/SoulcodeAgency/vscode-unwanted-extensions/develop/img/soulcode-logo.png" width="400" alt="Soulcode logo" />](https://soulcode.agency)
+
+The extension is developed by [Fabian Gander aka Cyclodex](https://github.com/Cyclodex).  
+The initial version was sponsored by [GARAIO AG](https://www.garaio.com).
+
+Thanks a lot!
