@@ -58,9 +58,12 @@ Create a file `.vscode/extensionsVersionCheck.json`, or if you need comments in 
 
 #### Example: `.vscode/extensionsVersionCheck.jsonc`
 
+> ⚠️ The `recommendations` field is not yet supported, it could be that we implement this feature in the future.
+> You can easily turn around the logic and define the `unwantedRecommendations` to reach the same "goal".
+
 ```jsonc
 {
-    "recommendations": [],
+    // "recommendations": [], !!! NOTE: recommendations is not yet supported/implemented !!! It could be a possible feature for the future.
     "unwantedRecommendations": [
         // Mention the extension id and the version you want to use, its enough to have 1 single definition.
         // However you can also mention the same extension id multiple times with different versions if you preffer.
