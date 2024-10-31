@@ -15,7 +15,7 @@ logger.show();
 export function activate(context: vscode.ExtensionContext) {
 	logger.appendLine('Extension "vscode-unwanted-extensions" is now active!');
 
-	// Check for updates
+	// Check for extension updates and show according message
 	checkUpdateNotification(context);
 
 	// Check for extensions
@@ -31,7 +31,11 @@ export function activate(context: vscode.ExtensionContext) {
 
 async function checkingExtensions(context: ExtensionContext, verbose = false) {
 	logger.appendLine('');
-	logger.appendLine('###  Checking... ###');
+	const currentTime = new Date().toLocaleString();
+	logger.appendLine(`###`);
+	logger.appendLine(`### Checking... ###`);
+	logger.appendLine(`### @ ${currentTime}`);
+	logger.appendLine(`###`);
 	logger.appendLine('');
 
 	// Get the extensions.json content
