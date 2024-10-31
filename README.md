@@ -1,23 +1,22 @@
 # Unwanted extensions
 
-This extensions, tries to help out with extensions which are not recommended for specific workspaces.  
-🆕 It now also supports version ranges!
+## 🧾Description
+
+This extensions notifies developers about extensions which are not recommended for a specific workspaces.  
+
+> For example: You want to tell your team mates, that a specific package or version of an extension should be disabled.
+
+Because of VSCode limitations, its not possible to do it automatically, but we instead show a warning and lead the developer to the mentioned extensions, whenever he opens a project.
+
+More details can be read in this [👀 blog post](https://www.garaio.com/blog/vscode-extensions-unwanted-recommendations).
 
 ## ↗️Successor
 
-This is the continuation of the previous extension [Unwanted Recommendations](https://marketplace.visualstudio.com/items?itemName=GARAIOAG.garaio-vscode-unwanted-recommendations) which is not maintained anymore.  
-The extension therefore had to be migrated to a new publisher. The developer is the same.
+[Unwanted extensions](https://marketplace.visualstudio.com/items?itemName=Soulcode.vscode-unwanted-extensions) is the continuation of the previous extension ~~[Unwanted Recommendations](https://marketplace.visualstudio.com/items?itemName=GARAIOAG.garaio-vscode-unwanted-recommendations)~~ which is not maintained anymore. Its just a new publisher, still the same maintainer.
 
-## 📖 Blog post
+## 🚧 VS Code situation
 
-I have written a more complete blog post about the whole topic and this extension, [👀 read it here](https://www.garaio.com/blog/vscode-extensions-unwanted-recommendations)
-
-## 🚧 Details / Situation
-
-Until now, it seems not to be possible to automate enabling or disabling extensions per project/workspace.  
-The VSCode Team introduced **profiles**, which went into a good direction and might be the solution in the future for that.  
-
-But still, there seem to be issues or unsupported details, like
+The VSCode Team introduced **profiles**, which went into a good direction and might be the solution in the future for that. But still, there seems to be issues or unsupported details, like
 
 * **Deprecating** specific extensions for a workspace
 * Also handling **SemVer** with extensions is a topic
@@ -26,7 +25,7 @@ Until then, its not easy to handle it. This extension tries to improve the exper
 
 ## 🧩 Features
 
-### Define unwanted extensions in extensions.json
+### Define unwanted extensions
 
 This extension allows you to put unwanted extensions, into the already existing `.vscode/extensions.json` file, which already seems to kind of support the property `unwantedRecommendations`. Simply put your vscode extension id's in this array.
 
@@ -47,7 +46,7 @@ Following is a possible example for using **`Volar`**, and check for disabled `V
 
 > Note: This extension is only handling the `unwantedRecommendations`, as the `recommendations` are already handled by **VSCode**.
 
-### 🆕Define extensions version numbers to exclude from this workspace
+### 🆕Exclude extensions by Version numbers
 
 If you want to mark a specific version or range of versions as deprecated for your workspace, you can now add the unwanted extensions to the following file, including the semver version range:
 
@@ -58,12 +57,12 @@ Create a file `.vscode/extensionsVersionCheck.json`, or if you need comments in 
 
 #### Example: `.vscode/extensionsVersionCheck.jsonc`
 
-> ⚠️ The `recommendations` field is not yet supported, it could be that we implement this feature in the future.
+> ⚠️ The `recommendations` field is not supported.
 > You can easily turn around the logic and define the `unwantedRecommendations` to reach the same "goal".
 
 ```jsonc
 {
-    // "recommendations": [], !!! NOTE: recommendations is not yet supported/implemented !!! It could be a possible feature for the future.
+    // "recommendations": [], !!! NOTE: versions are NOT supported in recommendations !!!
     "unwantedRecommendations": [
         // Mention the extension id and the version you want to use, its enough to have 1 single definition.
         // However you can also mention the same extension id multiple times with different versions if you preffer.
@@ -97,7 +96,42 @@ Create a file `.vscode/extensionsVersionCheck.json`, or if you need comments in 
 
 You can check the logs if you need more details, what is happening during the checks: `VSCode -> OUTPUT -> Unwanted extensions`
 
-## 🗒️ What does this extension do
+## ▶️ Run the check manually
+
+This extensions runs automatically when you open your project including the one of the configuration files.  
+You can also execute the check manually, using the vscode **command**
+
+* `Check for unwanted extensions`
+
+## ❗ Requirements
+
+`.vscode/extensions.json` should contain the list of unwanted extensions within the `unwantedRecommendations` property.  
+This file does not support version numbers. See above for details.
+
+### Version numbers
+
+Version numbers are only supported within the `.vscode/extensionsVersionCheck.json` (or `.jsonc`) file.
+
+### Workspaces / Multi-root workspaces
+
+You can use the above approach if you are running a workspace.
+Just place the `.vscode/extensions.json` file into your workspace root directory.
+
+Alternatively you can also put the unwanted extensions within your `***.code-workspace` file.
+
+```json
+{
+ "extensions": {
+  "unwantedRecommendations": [
+   "octref.vetur",
+  ]
+ }
+}
+```
+
+## 🗒️ Behind the scene
+
+What does this extension exactly do?
 
 * When opening the folder/workspace, this extension will *automatically* run if the `.vscode/extensions.json` (or `.vscode/extensionsVersionCheck.json`) file exists.
 * If there are any `unwantedRecommendations`, it will go through them and check if the `extension` is enabled.
@@ -134,39 +168,6 @@ Further when there is no extension defined as `unwantedRecommendations`, this ex
 
 1. No `unwantedRecommendations` configured within `extension.json`
 ![image](https://user-images.githubusercontent.com/840929/211356601-e160749a-4da4-4fe9-8ec1-c6f35639f93e.png)
-
-## ▶️ Run the check manually
-
-This extensions runs automatically when you open your project including the one of the configuration files.  
-You can also execute the check manually, using the vscode **command**
-
-* `Check for unwanted extensions`
-
-## ❗ Requirements
-
-`.vscode/extensions.json` should contain the list of unwanted extensions within the `unwantedRecommendations` property.  
-This file does not support version numbers. See above for details.
-
-### Version numbers
-
-Version numbers are only supported within the `.vscode/extensionsVersionCheck.json` (or `.jsonc`) file.
-
-### Workspaces / Multi-root workspaces
-
-You can use the above approach if you are running a workspace.
-Just place the `.vscode/extensions.json` file into your workspace root directory.
-
-Alternatively you can also put the unwanted extensions within your `***.code-workspace` file.
-
-```json
-{
- "extensions": {
-  "unwantedRecommendations": [
-   "octref.vetur",
-  ]
- }
-}
-```
 
 ## 🎉 Sponsors
 

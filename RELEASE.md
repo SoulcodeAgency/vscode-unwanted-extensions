@@ -18,6 +18,8 @@ To create a new Visual Studio Code extension release, you typically need to foll
 
 ### Release version
 
+Run `npm run release` or manually:
+
 Compile the TypeScript code: `npm run compile`
 
 Package the extension: `npm run package`
@@ -27,6 +29,8 @@ Publish the extension: `npm run publish`
 ### Pre-release
 
 If you are creating a pre-release version, you can use the following commands instead:
+
+Run `npm run pre-release` or manually:
 
 Compile the TypeScript code: `npm run compile`
 
