@@ -64,3 +64,9 @@ Internal
 Internal
 
 - Extended logging
+
+## [1.2.1] Release version - 2024-10-31
+
+Internal
+
+- Extended logging
