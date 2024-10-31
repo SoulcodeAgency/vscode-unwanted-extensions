@@ -62,7 +62,9 @@
     "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node",
     "esbuild": "npm run esbuild-base -- --sourcemap",
     "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
-    "test-compile": "tsc -p ./"
+    "test-compile": "tsc -p ./",
+    "release": "npm run compile && npm run package && npm run publish",
+    "pre-release": "npm run compile && npm run package:preRelease && npm run publish:preRelease"
   },
   "devDependencies": {
     "@types/glob": "^8.0.0",
