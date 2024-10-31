@@ -1,11 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { ExtensionContext, window, extensions } from 'vscode';
-
-// Define update messages
-const updateMessages: { [version: string]: string } = {
-  '1.2.0': '🚀New feature: Define versions per unwanted extension. See extension description for more details.',
-  '1.1.2': '🚀New feature: Define versions per unwanted extension. See extension description for more details.',
-};
+import { updateMessages } from './config/releaseMessages.conf';
 import { logger } from './extension';
 
 export function checkUpdateNotification(context: ExtensionContext) {
