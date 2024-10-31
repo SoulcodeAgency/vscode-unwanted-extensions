@@ -40,3 +40,27 @@
 ## [1.0.2] - 2024-01-05
 
 - README updated
+
+## [1.1.2] (pre-release) - 2024-01-16
+
+Feature
+
+- Added support for version ranges
+
+Other
+
+- README updated
+- Introduced some logging
+- Added JSONC support
+- Added example project
+- Added subfolder support
+
+Internal
+
+- Added system for update messages
+
+## [1.2.0] Release version - 2024-10-31
+
+Internal
+
+- Extended logging
