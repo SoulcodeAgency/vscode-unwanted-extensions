@@ -44,7 +44,13 @@ export async function getExtensionsJson(verbose = false): Promise<Configs> {
 
         await Promise.all(files.map(async file => {
             const config = await getJsonConfig(file);
-            logger.appendLine(`Found extension configuration in:`);
+
+            const hasConfig = config.recommendations || config.unwantedRecommendations;
+            if (hasConfig) {
+                logger.appendLine(`Found configuration in file: ${file.fsPath}`);
+            } else {
+                logger.appendLine(`No configuration found in file: ${file.fsPath}`);
+            }
             
             // Merge the configs
             if (config.recommendations) {
