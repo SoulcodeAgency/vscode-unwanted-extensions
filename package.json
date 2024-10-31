@@ -1,7 +1,7 @@
 {
   "name": "vscode-unwanted-extensions",
   "displayName": "Unwanted Extensions",
-  "description": "Check and warn for extensions which are marked as 'unwanted'.",
+  "description": "Warn developers about unwanted extensions",
   "icon": "icon.png",
   "version": "1.2.1",
   "repository": {
