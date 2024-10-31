@@ -9,3 +9,16 @@ vsc-extension-quickstart.md
 **/*.map
 **/*.ts
 *.pdn
+.vscode
+node_modules
+out/
+src/
+tsconfig.json
+webpack.config.js
+exampleProject
+img
+*.md
+
+# DO NOT IGNORE THESE FILES
+!README.md
+!dist

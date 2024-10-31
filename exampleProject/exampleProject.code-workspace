@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "something"
+		}
+	],
+	"settings": {},
+	"extensions": {
+		"recommendations": [],
+		"unwantedRecommendations": [
+			"ms-vscode.vscode-typescript-tslint-plugin"
+		]
+	}
+}

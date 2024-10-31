@@ -1,9 +1,9 @@
 {
   "name": "vscode-unwanted-extensions",
   "displayName": "Unwanted Extensions",
-  "description": "Check and warn for extensions which are marked as 'unwanted'.",
+  "description": "Warn developers about unwanted extensions",
   "icon": "icon.png",
-  "version": "1.0.2",
+  "version": "1.2.1",
   "repository": {
     "url": "https://github.com/SoulcodeAgency/vscode-unwanted-extensions"
   },
@@ -34,9 +34,11 @@
   ],
   "activationEvents": [
     "workspaceContains:.vscode/extensions.json",
+    "workspaceContains:.vscode/extensionsVersionCheck.json",
+    "workspaceContains:.vscode/extensionsVersionCheck.jsonc",
     "workspaceContains:*.code-workspace"
   ],
-  "main": "./out/extension.js",
+  "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
@@ -46,14 +48,23 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js",
     "package": "vsce package",
-    "publish": "vsce publish"
+    "package:fileList": "vsce ls",
+    "package:preRelease": "vsce package --pre-release",
+    "publish": "vsce publish",
+    "publish:preRelease": "vsce publish --pre-release",
+    "vscode:prepublish": "npm run esbuild-base -- --minify",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "npm run esbuild-base -- --sourcemap",
+    "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+    "test-compile": "tsc -p ./",
+    "release": "npm run compile && npm run package && npm run publish",
+    "pre-release": "npm run compile && npm run package:preRelease && npm run publish:preRelease"
   },
   "devDependencies": {
     "@types/glob": "^8.0.0",
@@ -64,12 +75,14 @@
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
     "@vscode/test-electron": "^2.2.0",
+    "esbuild": "^0.19.11",
     "eslint": "^8.28.0",
     "glob": "^8.0.3",
     "mocha": "^10.1.0",
     "typescript": "^4.9.3"
   },
   "dependencies": {
-    "hjson": "^3.2.2"
+    "hjson": "^3.2.2",
+    "semver": "^7.5.4"
   }
 }
