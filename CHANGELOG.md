@@ -70,3 +70,9 @@ Internal
 Internal
 
 - Extended logging
+
+## [1.2.2] Release version - 2024-11-02
+
+Fixes
+
+- Fixed bug in glob exclude pattern
