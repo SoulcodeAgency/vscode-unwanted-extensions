@@ -6,13 +6,13 @@ This extensions notifies developers about extensions which are not recommended f
 
 > For example: You want to tell your team mates, that a specific package or version of an extension should be disabled.
 
-Because of VSCode limitations, its not possible to do it automatically, but we instead show a warning and lead the developer to the mentioned extensions, whenever he opens a project.
+Because of VSCode limitations, it's not possible to do it automatically, but we instead show a warning and lead the developer to the mentioned extensions, whenever he opens a project.
 
 More details can be read in this [👀 blog post](https://www.garaio.com/blog/vscode-extensions-unwanted-recommendations).
 
 ## ↗️Successor
 
-[Unwanted extensions](https://marketplace.visualstudio.com/items?itemName=Soulcode.vscode-unwanted-extensions) is the continuation of the previous extension ~~[Unwanted Recommendations](https://marketplace.visualstudio.com/items?itemName=GARAIOAG.garaio-vscode-unwanted-recommendations)~~ which is not maintained anymore. Its just a new publisher, still the same maintainer.
+[Unwanted extensions](https://marketplace.visualstudio.com/items?itemName=Soulcode.vscode-unwanted-extensions) is the continuation of the previous extension ~~[Unwanted Recommendations](https://marketplace.visualstudio.com/items?itemName=GARAIOAG.garaio-vscode-unwanted-recommendations)~~ which is not maintained anymore. It's just a new publisher, still the same maintainer.
 
 ## 🚧 VS Code situation
 
@@ -21,7 +21,7 @@ The VSCode Team introduced **profiles**, which went into a good direction and mi
 * **Deprecating** specific extensions for a workspace
 * Also handling **SemVer** with extensions is a topic
 
-Until then, its not easy to handle it. This extension tries to improve the experience for developers.
+Until then, it's not easy to handle it. This extension tries to improve the experience for developers.
 
 ## 🧩 Features
 
@@ -64,7 +64,7 @@ Create a file `.vscode/extensionsVersionCheck.json`, or if you need comments in 
 {
     // "recommendations": [], !!! NOTE: versions are NOT supported in recommendations !!!
     "unwantedRecommendations": [
-        // Mention the extension id and the version you want to use, its enough to have 1 single definition.
+        // Mention the extension id and the version you want to use, it's enough to have 1 single definition.
         // However you can also mention the same extension id multiple times with different versions if you preffer.
         // We will report only the last matching rule which matches with the installed extension's version.
         // 
