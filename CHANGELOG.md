@@ -76,3 +76,9 @@ Internal
 Fixes
 
 - Fixed bug in glob exclude pattern
+
+## [1.2.3] Release version - 2024-11-15
+
+Fixes
+
+- Do not open the output channel automatically
