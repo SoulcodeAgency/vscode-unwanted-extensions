@@ -9,9 +9,9 @@ To create a new Visual Studio Code extension release, you typically need to foll
 ## Checklist
 
 * Verify first if pre-release or release version!
-* Update README, CHANGELOG
+* Update [README](README.md), [CHANGELOG](CHANGELOG.md)
 * Check package & package.lock for having correct version number
-* Update message for release in `src/config/releaseMessages.conf.ts`
+* Update message for release in [releaseMessages](src/config/releaseMessages.conf.ts)
 * Execute building steps according to your release
 
 ## Execute

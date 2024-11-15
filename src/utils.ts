@@ -18,7 +18,8 @@ export async function getJsonConfig(uri: vscode.Uri): Promise<Configs> {
 export async function getExtensionsJson(verbose = false): Promise<Configs> {
     // Check for default extensions.json file as well as extended ones with version numbers
     const fileGlob = '**/.vscode/extensions*.{json,jsonc}';
-    const files = await vscode.workspace.findFiles(fileGlob, '**​/node_modules/**');
+    const excludePattern = '**/node_modules/**';
+    const files = await vscode.workspace.findFiles(fileGlob, excludePattern);
 
     logger.appendLine(`Found ${files.length} extension configuration files`);
     files.forEach(file => logger.appendLine(`- ${file.fsPath}`));
