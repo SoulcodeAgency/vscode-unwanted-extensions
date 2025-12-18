@@ -13,7 +13,7 @@
     "name": "Fabian Gander"
   },
   "engines": {
-    "vscode": "1.74.0"
+    "vscode": "^1.74.0"
   },
   "categories": [
     "Other"
@@ -72,7 +72,7 @@
     "@types/mocha": "10.0.10",
     "@types/node": "25.0.3",
     "@types/semver": "7.7.1",
-    "@types/vscode": "1.107.0",
+    "@types/vscode": "1.74.0",
     "@typescript-eslint/eslint-plugin": "8.50.0",
     "@typescript-eslint/parser": "8.50.0",
     "@vscode/test-electron": "2.5.2",
